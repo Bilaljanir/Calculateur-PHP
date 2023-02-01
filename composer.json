@@ -1,0 +1,15 @@
+{
+    "name": "bilal/calculateur-php",
+    "autoload": {
+        "psr-4": {
+            "Bilal\\CalculateurPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bilaljanir",
+            "email": "bilaljanir@gmail.com"
+        }
+    ],
+    "require": {}
+}
