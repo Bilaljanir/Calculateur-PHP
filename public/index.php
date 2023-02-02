@@ -1,4 +1,17 @@
 <?php
+if(isset($_POST["submit"])) {
+    $userName = $_POST["user"];
+    $password = $_POST["pass"];
+
+    if ($userName === "bilal" && $password === "janir123") {
+        header("Location: login.php");
+    } elseif ($userName === "janir" && $password === "bilal123") {
+        header("Location: login.php");
+    }
+    else{
+        echo "Nom d'utilisateur ou mot de passe incorrect";
+    }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,18 +27,21 @@
 </head>
 <body>
 <div class="titre">
-<h1>Calculateur de moyenne CFC </h1>
+    <section>
+        <form action="=login.php" method="post">
+        <h1>Calculateur de moyenne CFC </h1>
 </div>
 <div class="login">
     <h2>Login Here</h2>
 </div>
 <div class="inputuser">
-    <input id="user" type="text" placeholder="Username" required>
+    <input type="text" name="user" placeholder="Username">
 </div>
 <div class="inputpass">
-    <input type="text" placeholder="Password" required>
+    <input type="password" name="pass" placeholder="Enter password">
 </div>
-<button class="btn">Login</button>
+<input type="submit" value="LOGIN">
 </div>
+</section>
 </body>
 </html>

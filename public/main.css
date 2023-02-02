@@ -2,7 +2,6 @@ h1 {
     color: black;
     background-color: #CBDFA0;
     height: 87px;
-    font-family:Inter;
     display: grid;
     align-items: center;
     text-align: center;
@@ -24,6 +23,7 @@ input{
     margin: 0 auto;
     width: 428px;
     text-align: center;
+    font-size: 25px;
     margin-bottom: 20px;
     height: 52px;
     left: 159px;
@@ -49,7 +49,7 @@ input{
     padding-right:0px;
 }
 
-.inputpass input[type="text"] {
+.inputpass input[type="password"] {
     background-image: url(./img/pass.svg);
     background-repeat: no-repeat;
     background-position: left center;
