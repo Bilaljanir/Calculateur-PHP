@@ -42,6 +42,16 @@ input{
     top: 547px;
     border-radius: 10px;
 }
-.img{
-    margin-bottom:50px;
+.inputuser input[type="text"] {
+    background-image: url(./img/user.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-right:0px;
+}
+
+.inputpass input[type="text"] {
+    background-image: url(./img/pass.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 0px;
 }
