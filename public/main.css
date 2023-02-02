@@ -1,10 +1,47 @@
 h1 {
     color: black;
-    text-align: center;
     background-color: #CBDFA0;
     height: 87px;
     font-family:Inter;
+    display: grid;
     align-items: center;
-
-
+    text-align: center;
+    font-size:40px;
+    margin-bottom: 211px;
+}
+body{
+    background-color: #E6F2DD;
+}
+.login h2{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+input{
+    display: block;
+    margin: 0 auto;
+    width: 428px;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 52px;
+    left: 159px;
+    top: -190px;
+    border-radius: 10px;
+    background: #CBDFA0;
+}
+.btn{
+    display: block;
+    margin: 0 auto;
+    font-size: 32px;
+    background-color: #CBDFA0;
+    height: 53px;
+    width: 138px;
+    left: 144px;
+    top: 547px;
+    border-radius: 10px;
+}
+.img{
+    margin-bottom:50px;
 }

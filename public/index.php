@@ -13,7 +13,22 @@
 </div>
 </head>
 <body>
+<div class="titre">
 <h1>Calculateur de moyenne CFC </h1>
+</div>
+<div class="login">
+    <h2>Login Here</h2>
+</div>
+<div class="input">
+    <input type="text" pla>
+    <img src="./img/user.svg">
+</div>
+<div>
+    <input value="Password">
+    <img  class="img1" src="./img/pass.svg">
+</div>
 
+<button class="btn">Login</button>
+</div>
 </body>
 </html>
