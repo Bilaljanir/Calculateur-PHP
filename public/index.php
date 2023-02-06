@@ -1,4 +1,5 @@
 <?php
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,15 +21,33 @@
     <h2>welcome to Calculateur</h2>
 </div>
 <div class="container">
+    <div id="phpconfig">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    </div>
     <label for="uname"></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 
     <label for="psw"></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-
     <button type="submit">Login</button>
+
 </div>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['uname'];
+    $password = $_POST['psw'];
+
+    if ($username === 'user1' && $password === 'pass1' ||
+        $username === 'user2' && $password === 'pass2') {
+        header('Location: login.php');
+        exit;
+    } else {
+        echo '<p>Invalid username or password.</p>';
+    }
+}
+?>
 
 
 </body>
 </html>
+
