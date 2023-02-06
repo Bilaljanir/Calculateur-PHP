@@ -1,0 +1,36 @@
+h1 {
+    width: 407px;
+    height: 45px;
+    left: 459px;
+    top: 57px;
+    font-family: 'Italiana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: 0.075em;
+    color: #000000;
+    margin:auto;
+    margin-top: 57px;
+
+}
+
+.line {
+    margin-top: 14px;
+    border: 1px solid #E5C6C6;
+    width: 443px;
+}
+
+h2{
+    display: flex;
+    flex-direction: column;
+    width: 157px;
+    height: 42px;
+    left: 59px;
+    top: 261px;
+    background: #E5C6C6;
+    border-radius: 10px;
+    position: absolute;
+}
+

@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($username === 'user1' && $password === 'pass1' ||
         $username === 'user2' && $password === 'pass2') {
-        header('Location: login.php');
+        header('Location: grade.php');
         exit;
     } else {
         echo '<p>Invalid username or password.</p>';
