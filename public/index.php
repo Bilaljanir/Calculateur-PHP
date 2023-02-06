@@ -13,24 +13,20 @@
 </div>
 </head>
 <body>
-<div>
-    <img src="/img/image.png" alt="">
-</div>
 <div class="titre">
-    <div class= "container main">
-        <div class="row">
-            <div class="col-md-6 side-image">
-            </div>
-        </div>
+    <h1>Calculateur de moyenne</h1>
     </div>
-    <h1>good morning</h1>
+<div class="titre2">
     <h2>welcome to Calculateur</h2>
 </div>
-<div class="login">
-    <p>Email</p>
-    <input type="text" required>
-    <p>Password</p>
-    <input type="text"required>
+<div class="container">
+    <label for="uname"></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
 </div>
 
 
