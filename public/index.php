@@ -1,17 +1,4 @@
 <?php
-if(isset($_POST["submit"])) {
-    $userName = $_POST["user"];
-    $password = $_POST["pass"];
-
-    if ($userName === "bilal" && $password === "janir123") {
-        header("Location: login.php");
-    } elseif ($userName === "janir" && $password === "bilal123") {
-        header("Location: login.php");
-    }
-    else{
-        echo "Nom d'utilisateur ou mot de passe incorrect";
-    }
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,22 +13,26 @@ if(isset($_POST["submit"])) {
 </div>
 </head>
 <body>
+<div>
+    <img src="/img/image.png" alt="">
+</div>
 <div class="titre">
-    <section>
-        <form action="=login.php" method="post">
-        <h1>Calculateur de moyenne CFC </h1>
+    <div class= "container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+            </div>
+        </div>
+    </div>
+    <h1>good morning</h1>
+    <h2>welcome to Calculateur</h2>
 </div>
 <div class="login">
-    <h2>Login Here</h2>
+    <p>Email</p>
+    <input type="text" required>
+    <p>Password</p>
+    <input type="text"required>
 </div>
-<div class="inputuser">
-    <input type="text" name="user" placeholder="Username">
-</div>
-<div class="inputpass">
-    <input type="password" name="pass" placeholder="Enter password">
-</div>
-<input type="submit" value="LOGIN">
-</div>
-</section>
+
+
 </body>
 </html>

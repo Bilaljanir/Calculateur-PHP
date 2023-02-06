@@ -1,57 +1,14 @@
-h1 {
-    color: black;
-    background-color: #CBDFA0;
-    height: 87px;
-    display: grid;
-    align-items: center;
-    text-align: center;
-    font-size:40px;
-    margin-bottom: 211px;
-}
+
 body{
-    background-color: #E6F2DD;
+    background-color: #F4E7DB;
 }
-.login h2{
-    display: grid;
+h1{
     text-align: center;
-    align-items: center;
-    font-size: 32px;
-    margin-bottom: 20px;
 }
-input{
-    display: block;
-    margin: 0 auto;
-    width: 428px;
+h2{
     text-align: center;
-    font-size: 25px;
-    margin-bottom: 20px;
-    height: 52px;
-    left: 159px;
-    top: -190px;
-    border-radius: 10px;
-    background: #CBDFA0;
-}
-.btn{
-    display: block;
-    margin: 0 auto;
-    font-size: 32px;
-    background-color: #CBDFA0;
-    height: 53px;
-    width: 138px;
-    left: 144px;
-    top: 547px;
-    border-radius: 10px;
-}
-.inputuser input[type="text"] {
-    background-image: url(./img/user.svg);
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-right:0px;
 }
 
-.inputpass input[type="password"] {
-    background-image: url(./img/pass.svg);
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 0px;
+.element {
+    background-image: url("/img/image.png");
 }
