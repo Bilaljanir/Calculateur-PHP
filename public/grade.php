@@ -18,19 +18,19 @@
 <div class="line-container">
     <hr class="line"/>
 </div>
-<div class="ecolepro">
+<div class="titreh2">
     <h2>Ecole pro</h2>
 </div>
-<div class="Cours Iter">
+<div class="titreh2">
     <h2>Cours inter</h2>
 </div>
-<div class="compétancedebase">
+<div class="titreh2">
     <h2>Compétance de base élargie</h2>
 </div>
-<div class="cultureG">
+<div class="titreh2">
     <h2>Culture G</h2>
 </div>
-<div class="tpi">
+<div class="titreh2">
     <h2>TPI</h2>
 </div>
 </body>
