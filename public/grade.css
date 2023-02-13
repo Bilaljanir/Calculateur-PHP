@@ -7,16 +7,8 @@
 body{
     background-color: #F8F5F5;
 }
-.haut {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 236px;
-    margin-top: 20px;
-}
-h1{
-    margin-top: 56px;
-    text-align: center;
+img{
+margin-top: 100px;
 }
 
 select{
@@ -27,23 +19,20 @@ select{
     background: #E5C6C6;
     border-radius: 10px;
     margin-left: 58px;
-
 }
 
-select > li {
-    width: 50px;
-}
 
 button {
     width: 157px;
     height: 42px;
     left: 42px;
     top: 265px;
-
     background: #E5C6C6;
     opacity: 0.9;
     border-radius: 10px;
-    margin-top: 92px;
+    margin-top: 200px;
+    margin-left: 42px;
+    border-color: #E5C6C6;
 }
 
 input{
@@ -54,56 +43,45 @@ input{
     top: 542px;
     background: #E5C6C6;
     border-radius: 10px;
+    border-color: #E5C6C6;
+}
+
+#input-number {
+    margin-left: 300px;
+}
+#input-numbergr3{
+    margin-left: 45px;
+
 }
 #add-grade{
-    width: 27px;
     height: 22px;
-    left: 559px;
-    top: 414px;
-
-    background: #E5C6C6;
+    width: 27px;
+    left: 573px;
+    top: 318px;
     border-radius: 5px;
-    margin-left: 45px;
+    margin-left: 100px;
+    border-color: #E5C6C6;
+
+
 }
 #remove-grade{
-    width: 27px;
     height: 22px;
-    left: 559px;
-    top: 414px;
-
-    background: #E5C6C6;
+    width: 27px;
+    left: 573px;
+    top: 318px;
     border-radius: 5px;
-    margin-left: 16px;
+    margin-left: 60px;
+    border-color: #E5C6C6;
+
 }
-#branch{
-    margin-left: 42px;
+table{
+    margin-left: 36px;
+}
+#moyennefinal{
+    margin-left: 155px;
 }
 
-#p-table-grade{
-    box-sizing: border-box;
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 661px;
-    top: 275px;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-}
+#moyenne{
+    margin-left: 90px;
 
-
-.entergrade {
-    display: grid;
-}
-
-.grp-1 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    align-items: center;
-}
-.grp-2 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    align-items: center;
 }

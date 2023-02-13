@@ -12,88 +12,143 @@
 
 
 <div class="bdy">
-<h1>Calculateur de moyenne </h1>
-<div class="haut">
-    <p>Enter Your grade</p>
-    <p>Your average</p>
-    <p>Your final average</p>
-</div>
+    <div id="img" style="text-align: center ;">
+        <img src="./img/titre.svg" alt="">
+    </div>
 
 
     <div class="grp-1">
         <button id="branch">École pro</button>
-        <div class="selectgr1">
-        <select name="semestre-select" id="semestre-select2">
-        </div>
-        </select>
-        <label for="input-number"></label>
-        <input id="input-number" type="number" min="1" max="6" step="0.5">
-        <button id="add-grade">+</button>
-        <button id="remove-grade">-</button>
+        <input id="input-number" type="number" min="1" max="6" step="0.5" style="display: inline-block;">
+        <button id="add-grade" style="display: inline-block;">+</button>
+        <button id="remove-grade" style="display: inline-block;">-</button>
+            <table style="display: inline-block; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+
+                </tr>
+            </table>
+            <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+                </tr>
+            </table>
+        <table id="moyennefinal" style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 131px; height: 41px; border: 1px solid black;"></td>
+            </tr>
+        </table>
+
+
     </div>
 
     <div class="grp-2">
-        <button id="branch">Cours Inter</button>
-        <div class="selectgr1">
-            <select name="semestre-select" id="semestre-select2">
-            </select>
-        </div>
-        <label for="input-number"></label>
+        <button id="branch">Cours inter</button>
         <input id="input-number" type="number" min="1" max="6" step="0.5">
         <button id="add-grade">+</button>
         <button id="remove-grade">-</button>
+        <table style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+
+            </tr>
+        </table>
+        <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+            </tr>
+        </table>
+
     </div>
-    <div class="grp-3">
-        <button id="branch">Compétence Élargie</button>
-        <select name="semestre-select" id="semestre-select">
-            <option>Semestre 1</option>
-            <option>Semestre 2</option>
-            <option>Semestre 3</option>
-            <option>Semestre 4</option>
-            <option>Semestre 5</option>
-
-        </select>
-
-        <select name="semestre-select" id="semestre-select5">
-
-        </select>
-        <label for="input-number"></label>
-        <input id="input-number" type="number" min="1" max="6" step="0.5">
+<div class="grp-3">
+        <button id="branch">Compétence de base élargie </button>
+    <select name="semestre-select" id="semestre-select">
+        <option>Semestre 1</option>
+        <option>Semestre 2</option>
+        <option>Semestre 3</option>
+        <option>Semestre 4</option>
+        <option>Semestre 5</option>
+    </select>
+    <select name="semestre-select" id="semestre-select">
+        <option>Math</option>
+        <option>Anglais</option>
+        <input id="input-numbergr3" type="number" min="1" max="6" step="0.5">
         <button id="add-grade">+</button>
         <button id="remove-grade">-</button>
+        <table style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+
+            </tr>
+        </table>
+    </select>
+    <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
+        <tr>
+            <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+        </tr>
+    </table>
     </div>
     <div class="grp-4">
         <button id="branch">Culture G</button>
-        <select name="semestre-select" id="semestre-select">
-            <option>Semestre 1</option>
-            <option>Semestre 2</option>
-            <option>Semestre 3</option>
-            <option>Semestre 4</option>
-            <option>Semestre 5</option>
-
-        </select>
-        <select name="semestre-select" id="semestre-select">
-            <option>Math</option>
-            <option>Anglais</option>
-
-
-        </select>
-        <label for="input-number"></label>
         <input id="input-number" type="number" min="1" max="6" step="0.5">
         <button id="add-grade">+</button>
         <button id="remove-grade">-</button>
+        <table style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+
+            </tr>
+        </table>
+        <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+            </tr>
+        </table>
     </div>
     <div class="grp-5">
         <button id="branch">TPI</button>
-        <div class="selectgr1">
-            <select name="semestre-select" id="semestre-select2">
-            </select>
-        </div>
-        <label for="input-number"></label>
         <input id="input-number" type="number" min="1" max="6" step="0.5">
         <button id="add-grade">+</button>
         <button id="remove-grade">-</button>
+        <table style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+
+            </tr>
+        </table>
+        <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+            </tr>
+        </table>
     </div>
+
 </div>
+
 </body>
 </html>
