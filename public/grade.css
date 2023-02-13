@@ -10,6 +10,13 @@ body{
 img{
 margin-top: 100px;
 }
+#line{
+    width: 443px;
+    height: 0px;
+    left: 483px;
+    top: 102px;
+    border: 1px solid #E5C6C6;
+}
 
 select{
     width: 65px;
@@ -20,8 +27,35 @@ select{
     border-radius: 10px;
     margin-left: 58px;
 }
+ .result {
+     display: flex;
+     flex-direction: row;
+}
 
+p1{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 123px;
+    height: 42px;
+    left: 1128px;
+    top: 435px;
+    background: #85E365;
+    border-radius: 10px;
+}
 
+p2{
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: center;
+    width: 123px;
+    height: 42px;
+    left: 1272px;
+    top: 435px;
+    background: #E15555;
+    border-radius: 10px;
+}
 button {
     width: 157px;
     height: 42px;
@@ -76,12 +110,23 @@ input{
 }
 table{
     margin-left: 36px;
+    background-color: white;
 }
 #moyennefinal{
     margin-left: 155px;
+    background-color: white;
+
 }
 
-#moyenne{
+#moyenne {
     margin-left: 90px;
-
+    background-color: white;
+}
+h2{
+    width: 123px;
+    height: 42px;
+    left: 1128px;
+    top: 435px;
+    background: #85E365;
+    border-radius: 10px;
 }

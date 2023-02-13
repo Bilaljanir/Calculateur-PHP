@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./grade.css">
-    <title>Document</title>
+    <title>Grade</title>
 </head>
 <body>
 
@@ -14,9 +14,8 @@
 <div class="bdy">
     <div id="img" style="text-align: center ;">
         <img src="./img/titre.svg" alt="">
+        <hr id="line">
     </div>
-
-
     <div class="grp-1">
         <button id="branch">École pro</button>
         <input id="input-number" type="number" min="1" max="6" step="0.5" style="display: inline-block;">
@@ -43,8 +42,6 @@
                 <td style="width: 131px; height: 41px; border: 1px solid black;"></td>
             </tr>
         </table>
-
-
     </div>
 
     <div class="grp-2">
@@ -60,7 +57,6 @@
                 <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                 <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                 <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-
             </tr>
         </table>
         <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
@@ -68,9 +64,12 @@
                 <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
             </tr>
         </table>
-
+        <div class="result" style="display: inline-block;">
+            <p1>You passed</p1>
+            <p2>You failed</p2>
+        </div>
     </div>
-<div class="grp-3">
+    <div class="grp-3">
         <button id="branch">Compétence de base élargie </button>
     <select name="semestre-select" id="semestre-select">
         <option>Semestre 1</option>
