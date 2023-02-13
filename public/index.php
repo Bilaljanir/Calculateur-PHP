@@ -1,5 +1,4 @@
 <?php
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,12 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username === 'user2' && $password === 'pass2') {
         header('Location: grade.php');
         exit;
+
     } else {
         echo '<p>Invalid username or password.</p>';
     }
 }
 ?>
-
 
 </body>
 </html>

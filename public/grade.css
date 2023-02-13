@@ -1,48 +1,109 @@
-h1 {
-    width: 407px;
-    height: 45px;
-    left: 459px;
-    top: 57px;
-    font-family: 'Italiana';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 38px;
+.bdy{
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    row-gap: 94px;
+    gap: 94px;
+}
+body{
+    background-color: #F8F5F5;
+}
+.haut {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 236px;
+    margin-top: 20px;
+}
+h1{
+    margin-top: 56px;
     text-align: center;
-    letter-spacing: 0.075em;
-    color: #000000;
-    margin:auto;
-    margin-top: 57px;
+}
+
+select{
+    width: 65px;
+    height: 30px;
+    left: 257px;
+    top: 542px;
+    background: #E5C6C6;
+    border-radius: 10px;
+    margin-left: 58px;
 
 }
 
-.line {
-    margin-top: 14px;
-    border: 1px solid #E5C6C6;
-    width: 443px;
+select > li {
+    width: 50px;
 }
 
-h2 {
-    width: 98px;
-    height: 25px;
-    left: 89px;
-    top: 275px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #000000;
+button {
     width: 157px;
     height: 42px;
-    left: 59px;
-    top: 261px;
+    left: 42px;
+    top: 265px;
+
+    background: #E5C6C6;
+    opacity: 0.9;
+    border-radius: 10px;
+    margin-top: 92px;
+}
+
+input{
+    margin-left: 31px;
+    width: 46px;
+    height: 30px;
+    left: 468px;
+    top: 542px;
     background: #E5C6C6;
     border-radius: 10px;
 }
+#add-grade{
+    width: 27px;
+    height: 22px;
+    left: 559px;
+    top: 414px;
 
-.titre2{
+    background: #E5C6C6;
+    border-radius: 5px;
+    margin-left: 45px;
+}
+#remove-grade{
+    width: 27px;
+    height: 22px;
+    left: 559px;
+    top: 414px;
 
+    background: #E5C6C6;
+    border-radius: 5px;
+    margin-left: 16px;
+}
+#branch{
+    margin-left: 42px;
+}
+
+#p-table-grade{
+    box-sizing: border-box;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 661px;
+    top: 275px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+
+.entergrade {
+    display: grid;
+}
+
+.grp-1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    align-items: center;
+}
+.grp-2 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    align-items: center;
 }
