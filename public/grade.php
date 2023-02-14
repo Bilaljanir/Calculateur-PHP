@@ -64,11 +64,12 @@
                 <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
             </tr>
         </table>
-        <div class="result" style="display: inline-block;">
+        <div class="result" style="display: inline-block; vertical-align: middle;">
             <p1>You passed</p1>
             <p2>You failed</p2>
         </div>
     </div>
+
     <div class="grp-3">
         <button id="branch">Compétence de base élargie </button>
     <select name="semestre-select" id="semestre-select">
