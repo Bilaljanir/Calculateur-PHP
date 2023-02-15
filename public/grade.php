@@ -1,3 +1,7 @@
+<?php
+require "../vendor/autoload.php";
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,10 +20,14 @@
         <img src="./img/titre.svg" alt="">
         <hr id="line">
     </div>
+
     <div class="grp-1">
+        <form method="post" action="recuper.php">
+        <h2>Enter your grade</h2>
         <button id="branch">École pro</button>
-        <input id="input-number" type="number" min="1" max="6" step="0.5" style="display: inline-block;">
-        <button id="add-grade" style="display: inline-block;">+</button>
+            <label for="input-number"></label><input id="input-number" name="input" type="number" min="1" max="6" step="0.5" value="1" style="display: inline-block;">
+            <button type="submit">+</button>
+<!--        <button id="add-grade" name="button" style="display: inline-block;">+</button>-->
         <button id="remove-grade" style="display: inline-block;">-</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -29,7 +37,6 @@
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-
                 </tr>
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
@@ -42,12 +49,13 @@
                 <td style="width: 131px; height: 41px; border: 1px solid black;"></td>
             </tr>
         </table>
+        </form>
     </div>
 
     <div class="grp-2">
         <button id="branch">Cours inter</button>
         <input id="input-number" type="number" min="1" max="6" step="0.5">
-        <button id="add-grade">+</button>
+        <button type="submit">+</button>
         <button id="remove-grade">-</button>
         <table style="display: inline-block; border-collapse: collapse;">
             <tr>
@@ -64,7 +72,7 @@
                 <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
             </tr>
         </table>
-        <div class="result" style="display: inline-block; vertical-align: middle;">
+        <div class="result" style="display: inline-block;">
             <p1>You passed</p1>
             <p2>You failed</p2>
         </div>
@@ -83,7 +91,7 @@
         <option>Math</option>
         <option>Anglais</option>
         <input id="input-numbergr3" type="number" min="1" max="6" step="0.5">
-        <button id="add-grade">+</button>
+        <button type="submit">+</button>
         <button id="remove-grade">-</button>
         <table style="display: inline-block; border-collapse: collapse;">
             <tr>
@@ -106,7 +114,7 @@
     <div class="grp-4">
         <button id="branch">Culture G</button>
         <input id="input-number" type="number" min="1" max="6" step="0.5">
-        <button id="add-grade">+</button>
+        <button type="submit">+</button>
         <button id="remove-grade">-</button>
         <table style="display: inline-block; border-collapse: collapse;">
             <tr>
@@ -128,7 +136,7 @@
     <div class="grp-5">
         <button id="branch">TPI</button>
         <input id="input-number" type="number" min="1" max="6" step="0.5">
-        <button id="add-grade">+</button>
+        <button type="submit">+</button>
         <button id="remove-grade">-</button>
         <table style="display: inline-block; border-collapse: collapse;">
             <tr>

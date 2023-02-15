@@ -18,6 +18,7 @@ margin-top: 100px;
     border: 1px solid #E5C6C6;
 }
 
+
 select{
     width: 65px;
     height: 30px;
@@ -27,14 +28,12 @@ select{
     border-radius: 10px;
     margin-left: 58px;
 }
-.result{
-    display: flex;
-    flex-direction:row;
 
-}
 
 p1{
-    display: block;
+    margin-top: 100px;
+    margin-left: 250px;
+    display: flex;
     justify-content: center;
     text-align: center;
     width: 123px;
@@ -46,9 +45,9 @@ p1{
 }
 
 p2{
+    margin-left: 100px;
     display: block;
     text-align: center;
-    margin-top: 20px;
     justify-content: center;
     width: 123px;
     height: 42px;
@@ -123,11 +122,24 @@ table{
     margin-left: 90px;
     background-color: white;
 }
-h2{
-    width: 123px;
-    height: 42px;
-    left: 1128px;
-    top: 435px;
-    background: #85E365;
-    border-radius: 10px;
+.header2{
+    margin-top: 76px;
+    display: flex;
+    flex-direction: row;
 }
+h2 {
+    width: 171px;
+    height: 21px;
+    left: 411px;
+    top: 209px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #000000;
+    margin-left: 436px;
+}
+
