@@ -1,16 +1,13 @@
 <?php
-$grade = $_POST;
-var_dump($grade);
-$monTableau = array(1, 2, 3);
-foreach ($monTableau as $A) {
-    print($A);
+if(isset($_POST['submit']))
+{
+    $grade = $_POST['input-grade'];
 
-    $semestret = $_POST['semestre-select'];
-    $matiere = $_POST['semestre-select1'];
+    $semestre = $_POST['semestre-select1'];
+    $branche = $_POST['branch-select1'];
+//var_dump($grade);
 
-    echo "semestre-select" . $semestret . "<br>";
-    echo "semestre-select1" . $matiere;
-
+var_dump($semestre.''.$branche.' '.$grade);
 }
 ?>
 <!doctype html>
@@ -101,20 +98,22 @@ foreach ($monTableau as $A) {
         <form method="post" action="recuper.php">
             <button id="branch">Compétence de base élargie</button>
 
-            <label for="semestre-select"></label>
-            <select name="semestre-select" id="semestre-select">
+            <label for="semestre-select[]"></label>
+            <select name="semestre-select[]" ">
                 <option>Semestre 1</option>
                 <option>Semestre 2</option>
                 <option>Semestre 3</option>
                 <option>Semestre 4</option>
                 <option>Semestre 5</option>
             </select>
-            <select name="semestre-select1" id="semestre-select">
+
+            <label for="branch-select1[]"></label>
+            <select name="branch-select1[]">
                 <option>Math</option>
                 <option>Anglais</option>
             </select>
                 <label for="input-numbergr3"></label>
-                <input id="input-numbergr3" type="number" min="1" max="6" step="0.5" value="1">
+                <input id="input-numbergr3" name="input-grade" type="number" min="1" max="6" step="0.5" value="1">
                 <button type="submit">+</button>
                 <button id="remove-grade">-</button>
 
