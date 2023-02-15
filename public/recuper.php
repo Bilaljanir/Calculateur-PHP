@@ -13,6 +13,6 @@
 </html>
 <?php
 $grade = $_POST;
-var_dump($grade);
+print_r($grade);
 
 ?>

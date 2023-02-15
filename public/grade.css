@@ -56,11 +56,10 @@ p2{
     background: #E15555;
     border-radius: 10px;
 }
+
 button {
     width: 157px;
     height: 42px;
-    left: 42px;
-    top: 265px;
     background: #E5C6C6;
     opacity: 0.9;
     border-radius: 10px;
