@@ -12,7 +12,18 @@
 </body>
 </html>
 <?php
-$grade = $_POST;
-print_r($grade);
 
+// initialiser un tableau vide pour stocker les valeurs des champs de formulaire
+$form_values = array();
+
+// parcourir toutes les valeurs soumises dans le formulaire
+foreach ($_POST as $name => $value) {
+    // stocker la valeur dans le tableau, avec le nom du champ comme clé
+    $form_values[$name] = $value;
+}
+
+// afficher le contenu du tableau de valeurs de formulaire
+var_dump($form_values);
 ?>
+
+

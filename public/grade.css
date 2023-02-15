@@ -142,3 +142,7 @@ h2 {
     margin-left: 436px;
 }
 
+.enter-grade {
+    display: flex;
+    justify-content: space-between;
+}

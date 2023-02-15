@@ -1,14 +1,5 @@
 <?php
-if(isset($_POST['submit']))
-{
-    $grade = $_POST['input-grade'];
 
-    $semestre = $_POST['semestre-select1'];
-    $branche = $_POST['branch-select1'];
-//var_dump($grade);
-
-var_dump($semestre.''.$branche.' '.$grade);
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +12,6 @@ var_dump($semestre.''.$branche.' '.$grade);
     <title>Grade</title>
 </head>
 <body>
-
 
 <div class="bdy">
     <div id="img" style="text-align: center ;">
@@ -50,7 +40,7 @@ var_dump($semestre.''.$branche.' '.$grade);
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                </tr>
+                </tr>4.5
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -69,7 +59,7 @@ var_dump($semestre.''.$branche.' '.$grade);
         <form method="post" action="recuper.php">
             <button id="branch">Cours inter</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-cours inter" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-cours-inter" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button type="submit" name="submit">+</button>
             <button id="remove-grade">-</button>
