@@ -1,6 +1,17 @@
 <?php
-
+if(isset($_POST['submit'])) {
+    // initialisation du tableau de notes
+    $notes = array();
+    // récupération de la note entrée dans input-Ecole-Pro
+    $note = $_POST['input-Ecole-Pro'];
+    // stockage de la note dans le tableau de notes
+    $notes[] = $note;
+    // envoi du tableau de notes vers la page recuper.php
+    header('Location: recuper.php?notes=' . urlencode(serialize($notes)));
+    exit;
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,7 +40,7 @@
             <button id="branch">École pro</button>
             <label for="input-number"></label>
             <input id="input-number" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1">
-            <button type="submit" name="submit">+</button>
+            <button id="submitadd" type="submit" name="submit">+</button>
             <!--        <button id="add-grade" name="button" style="display: inline-block;">+</button>-->
             <button id="remove-grade" style="display: inline-block;">-</button>
             <table style="display: inline-block; border-collapse: collapse;">
@@ -40,7 +51,7 @@
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
                     <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                </tr>4.5
+                </tr>
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -78,10 +89,6 @@
                     <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
                 </tr>
             </table>
-            <div class="result" style="display: inline-block;">
-                <p>You passed</p>
-                <p>You failed</p>
-            </div>
         </form>
     </div>
     <div class="grp-3">

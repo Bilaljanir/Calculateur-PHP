@@ -11,8 +11,9 @@
 <h1>Recuper</h1>
 </body>
 </html>
-<?php
 
+
+<?php
 // initialiser un tableau vide pour stocker les valeurs des champs de formulaire
 $form_values = array();
 
@@ -25,5 +26,3 @@ foreach ($_POST as $name => $value) {
 // afficher le contenu du tableau de valeurs de formulaire
 var_dump($form_values);
 ?>
-
-
