@@ -1,14 +1,34 @@
 <?php
+// Initialiser le tableau des notes et le compteur de notes
+$grades = array();
+$num_grades = 0;
+
+// Vérifier si le formulaire a été soumis
+if (isset($_POST['submit'])) {
+    // Récupérer la nouvelle note et l'ajouter au tableau des notes
+    $new_grade = $_POST['input-Ecole-Pro'];
+    $grades[] = $new_grade;
+    $num_grades++;
+}
+
+// Afficher le tableau des notes
+echo "<table>";
+echo "<tr>";
+for ($i = 0; $i < 6; $i++) {
+    if ($i < $num_grades) {
+        echo "<td>" . $grades[$i] . "</td>";
+    } else {
+        echo "<td></td>";
+    }
+}
+echo "</tr>";
+echo "</table>";
+?>
+
+<?php
 if(isset($_POST['submit'])) {
-    // initialisation du tableau de notes
-    $notes = array();
-    // récupération de la note entrée dans input-Ecole-Pro
     $note = $_POST['input-Ecole-Pro'];
-    // stockage de la note dans le tableau de notes
-    $notes[] = $note;
-    // envoi du tableau de notes vers la page recuper.php
-    header('Location: recuper.php?notes=' . urlencode(serialize($notes)));
-    exit;
+    // Stocker la note dans un fichier, une base de données, etc.
 }
 ?>
 
@@ -23,7 +43,6 @@ if(isset($_POST['submit'])) {
     <title>Grade</title>
 </head>
 <body>
-
 <div class="bdy">
     <div id="img" style="text-align: center ;">
         <img src="./img/titre.svg" alt="">
@@ -36,21 +55,24 @@ if(isset($_POST['submit'])) {
     </div>
 
     <div class="grp-1">
-        <form method="post" action="recuper.php">
+        <form method="post">
             <button id="branch">École pro</button>
             <label for="input-number"></label>
             <input id="input-number" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1">
-            <button id="submitadd" type="submit" name="submit">+</button>
-            <!--        <button id="add-grade" name="button" style="display: inline-block;">+</button>-->
+            <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <button id="remove-grade" style="display: inline-block;">-</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <?php
+                    $num_grades = count($grades); // obtenir le nombre de notes dans le tableau
+                    for ($i = 0; $i < 6; $i++) { // boucle sur chaque cellule de la première ligne
+                        if ($i < $num_grades) { // si une note existe pour cette cellule
+                            echo "<td style='width: 33px; height: 32px; border: 1px solid black;'>".$grades[$i]."</td>";
+                        } else { // sinon, laisser la cellule vide
+                            echo "<td style='width: 33px; height: 32px; border: 1px solid black;'></td>";
+                        }
+                    }
+                    ?>
                 </tr>
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
@@ -72,7 +94,7 @@ if(isset($_POST['submit'])) {
             <label for="input-number"></label>
             <input id="input-number" name="input-cours-inter" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
-            <button type="submit" name="submit">+</button>
+            <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <button id="remove-grade">-</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -111,7 +133,7 @@ if(isset($_POST['submit'])) {
             </select>
                 <label for="input-numbergr3"></label>
                 <input id="input-numbergr3" name="input-grade" type="number" min="1" max="6" step="0.5" value="1">
-                <button type="submit">+</button>
+            <button id="add-grade" name="submit" style="display: inline-block;">+</button>
                 <button id="remove-grade">-</button>
 
                 <table style="display: inline-block; border-collapse: collapse;">
@@ -138,7 +160,7 @@ if(isset($_POST['submit'])) {
             <label for="input-number"></label>
             <input id="input-number" name="input-culture" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
-            <button type="submit" name="submit">+</button>
+            <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <button id="remove-grade">-</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -164,7 +186,7 @@ if(isset($_POST['submit'])) {
             <label for="input-number"></label>
             <input id="input-number" name="input-cours inter" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
-            <button type="submit" name="submit">+</button>
+            <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <button id="remove-grade">-</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
