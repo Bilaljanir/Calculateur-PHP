@@ -16,13 +16,19 @@ if (isset($_POST['logout'])) {
 // Handle new grade submission
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-Ecole-Pro'])) {
-        $new_grade = floatval($_POST['input-Ecole-Pro']);
-        array_push($_SESSION['grades'], $new_grade);
-        $_SESSION['success_message'] = 'Grade added successfully.';
+        if(!is_array($_POST['input-Ecole-Pro'])) {
+            $_POST['input-Ecole-Pro'] = array($_POST['input-Ecole-Pro']);
+        }
+        foreach($_POST['input-Ecole-Pro'] as $new_grade) {
+            $new_grade = floatval($new_grade);
+            array_push($_SESSION['grades'], $new_grade);
+        }
+        $_SESSION['success_message'] = 'Grades added successfully.';
         header('Location: grade.php');
         exit;
     }
 }
+
 
 // Calculate average grade
 $num_grades = count($_SESSION['grades']);
@@ -66,9 +72,9 @@ if (isset($_SESSION['error_message'])) {
 
     <div class="grp-1">
         <form method="post">
-            <button id="branch">École pro</button>
+            <button onclick="event.preventDefault()" id="branch">École pro</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1">
+            <input id="input-number" name="input-Ecole-Pro[]" type="number" min="1" max="6" step="0.5" value="1">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -98,32 +104,36 @@ if (isset($_SESSION['error_message'])) {
     </div>
 
 <div class="grp-2">
-        <form method="post" action="recuper.php">
-            <button id="branch">Cours inter</button>
+        <form method="post">
+            <button onclick="event.preventDefault()"  id="branch">Cours inter</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-cours-inter" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-Ecole-Pro[]" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <?php
+                    // Display each grade in a table cell as a hyperlink
+                    foreach ($_SESSION['grades'] as $index => $grade) {
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                    }
+                    // Add empty cells if necessary to fill the first row
+                    for ($i = count($_SESSION['grades']); $i < 6; $i++) {
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'></td>";
+                    }
+                    ?>
                 </tr>
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 79px; height: 32px; border: 1px solid black;"><?php echo round($average, 2); ?></td>
                 </tr>
             </table>
         </form>
     </div>
     <div class="grp-3">
         <form method="post" action="recuper.php">
-            <button id="branch">Compétence de base élargie</button>
+            <button onclick="event.preventDefault()" id="branch">Compétence de base élargie</button>
 
             <label for="semestre-select[]"></label>
             <select name="semestre-select[]" ">
@@ -140,7 +150,7 @@ if (isset($_SESSION['error_message'])) {
                 <option>Anglais</option>
             </select>
                 <label for="input-numbergr3"></label>
-                <input id="input-numbergr3" name="input-grade" type="number" min="1" max="6" step="0.5" value="1">
+                <input id="input-numbergr3" name="input-Ecole-Pro[]" type="number" min="1" max="6" step="0.5" value="1">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
 
 
@@ -164,50 +174,58 @@ if (isset($_SESSION['error_message'])) {
     </div>
     <div class="grp-4">
         <form method="post" action="recuper.php">
-            <button id="branch">Culture G</button>
+            <button onclick="event.preventDefault()"  id="branch">Culture G</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-culture" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-Ecole-Pro[]" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <?php
+                    // Display each grade in a table cell as a hyperlink
+                    foreach ($_SESSION['grades'] as $index => $grade) {
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                    }
+                    // Add empty cells if necessary to fill the first row
+                    for ($i = count($_SESSION['grades']); $i < 6; $i++) {
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'></td>";
+                    }
+                    ?>
 
                 </tr>
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 79px; height: 32px; border: 1px solid black;"><?php echo round($average, 2); ?></td>
                 </tr>
             </table>
         </form>
     </div>
     <div class="grp-5">
-        <form method="post" action="recuper.php">
+        <form onclick="event.preventDefault()"  method="post" action="recuper.php">
             <button id="branch">TPI</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-cours inter" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-Ecole-Pro[]" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
-                    <td style="width: 33px; height: 32px; border: 1px solid black;"></td>
+                    <?php
+                    // Display each grade in a table cell as a hyperlink
+                    foreach ($_SESSION['grades'] as $index => $grade) {
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                    }
+                    // Add empty cells if necessary to fill the first row
+                    for ($i = count($_SESSION['grades']); $i < 6; $i++) {
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'></td>";
+                    }
+                    ?>
 
                 </tr>
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 79px; height: 32px; border: 1px solid black;"><?php echo round($average, 2); ?></td>
                 </tr>
             </table>
         </form>
