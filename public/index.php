@@ -36,24 +36,27 @@
     </div>
 </div>
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['uname'];
+    $password = $_POST['psw'];
+
+    switch (true) {
+        case $username === 'user1' && $password === 'pass1':
+        case $username === 'user2' && $password === 'pass2':
+            header('Location: grade.php');
+            exit;
+
+        default:
+            echo '<p>Invalid username or password.</p>';
+            break;
+    }
+}
+
 if (isset($_POST['logout'])) {
     // Déconnectez l'utilisateur
     // Vous pouvez supprimer les cookies, vider la session, etc.
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['uname'];
-    $password = $_POST['psw'];
-
-    if ($username === 'user1' && $password === 'pass1' ||
-        $username === 'user2' && $password === 'pass2') {
-        header('Location: grade.php');
-        exit;
-
-    } else {
-        echo '<p>Invalid username or password.</p>';
-    }
-}
 ?>
 
 </body>
