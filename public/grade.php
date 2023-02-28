@@ -2,7 +2,7 @@
 session_start();
 
 // Initialize the grades array
-if (!isset($_SESSION['grades'])) {
+if (!isset($_SESSION['grades']) || !is_array($_SESSION['grades'])) {
     $_SESSION['grades'] = [];
 }
 
@@ -13,7 +13,7 @@ if (isset($_POST['logout'])) {
     exit;
 }
 
-// Handle new grade submission
+// Traiter la soumission des nouvelles notes
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-Ecole-Pro'])) {
         $new_grade = floatval($_POST['input-Ecole-Pro']);
@@ -25,23 +25,11 @@ if (isset($_POST['submit'])) {
 }
 
 // Calculate average grade
-$num_grades = count($_SESSION['grades']);
+$num_grades = is_countable($_SESSION['grades']) ? count($_SESSION['grades']) : 0;
 $sum_grades = array_sum($_SESSION['grades']);
 $average = $num_grades > 0 ? $sum_grades / $num_grades : 0;
 
-// Handle success message
-if (isset($_SESSION['success_message'])) {
-    echo '<div style="color: green;">'.$_SESSION['success_message'].'</div>';
-    unset($_SESSION['success_message']);
-}
-
-// Handle error message
-if (isset($_SESSION['error_message'])) {
-    echo '<div style="color: red;">'.$_SESSION['error_message'].'</div>';
-    unset($_SESSION['error_message']);
-}
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -96,16 +84,11 @@ if (isset($_SESSION['error_message'])) {
             </table>
         </form>
     </div>
-</body>
-</html>
-
-
-
 <div class="grp-2">
         <form method="post" action="recuper.php">
             <button id="branch">Cours inter</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-cours-inter" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
@@ -144,7 +127,7 @@ if (isset($_SESSION['error_message'])) {
                 <option>Anglais</option>
             </select>
                 <label for="input-numbergr3"></label>
-                <input id="input-numbergr3" name="input-grade" type="number" min="1" max="6" step="0.5" value="1">
+                <input id="input-numbergr3" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
 
 
@@ -170,7 +153,7 @@ if (isset($_SESSION['error_message'])) {
         <form method="post" action="recuper.php">
             <button id="branch">Culture G</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-culture" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
@@ -195,7 +178,7 @@ if (isset($_SESSION['error_message'])) {
         <form method="post" action="recuper.php">
             <button id="branch">TPI</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-cours inter" type="number" min="1" max="6" step="0.5" value="1"
+            <input id="input-number" name="input-Ecole-Pro" type="number" min="1" max="6" step="0.5" value="1"
                    style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
@@ -216,8 +199,6 @@ if (isset($_SESSION['error_message'])) {
             </table>
         </form>
     </div>
-
 </div>
-
 </body>
 </html>
