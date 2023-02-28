@@ -36,6 +36,11 @@
     </div>
 </div>
 <?php
+if (isset($_POST['logout'])) {
+    // Déconnectez l'utilisateur
+    // Vous pouvez supprimer les cookies, vider la session, etc.
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['uname'];
     $password = $_POST['psw'];
