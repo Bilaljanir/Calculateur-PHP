@@ -16,16 +16,16 @@ if (!isset($_SESSION['grades_pro'])) {
 if (!isset($_SESSION['grades_inter'])) {
     $_SESSION['grades_inter'] = [];
 }
+if (!isset($_SESSION['grades_comp'])) {
+    $_SESSION['grades_comp'] = [];
+}
+
 if (!isset($_SESSION['grades_culture'])) {
     $_SESSION['grades_culture'] = [];
 }
 
 if (!isset($_SESSION['grades_tpi'])) {
     $_SESSION['grades_tpi'] = [];
-}
-
-if (!isset($_SESSION['grades_comp'])) {
-    $_SESSION['grades_comp'] = [];
 }
 
 // Handle submission of new grades
@@ -53,6 +53,20 @@ if (isset($_POST['submit'])) {
         exit;
     }
 }
+if (isset($_POST['submit'])) {
+    if (isset($_POST['input-comp'])) {
+        if(!is_array($_POST['input-comp'])) {
+            $_POST['input-Culture-G'] = array($_POST['input-comp']);
+        }
+        foreach($_POST['input-comp'] as $new_grade) {
+            $new_grade = floatval($new_grade);
+            array_push($_SESSION['grades_comp'], $new_grade);
+        }
+        header('Location: grade.php');
+        exit;
+    }
+}
+
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-Culture-G'])) {
         if(!is_array($_POST['input-Culture-G'])) {
@@ -91,6 +105,10 @@ $num_grades_inter = count($_SESSION['grades_inter']);
 $sum_grades_inter = array_sum($_SESSION['grades_inter']);
 $average_inter = $num_grades_inter > 0 ? $sum_grades_inter / $num_grades_inter : 0;
 
+$num_grades_comp = count($_SESSION['grades_comp']);
+$sum_grades_comp = array_sum($_SESSION['grades_comp']);
+$average_comp = $num_grades_comp > 0 ? $sum_grades_comp / $num_grades_comp : 0;
+
 $num_grades_culture = count($_SESSION['grades_culture']);
 $sum_grades_culture = array_sum($_SESSION['grades_culture']);
 $average_culture = $num_grades_culture > 0 ? $sum_grades_culture / $num_grades_culture : 0;
@@ -121,7 +139,6 @@ if (isset($_SESSION['error_message'])) {
 
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -171,6 +188,23 @@ if (isset($_SESSION['error_message'])) {
                 </tr>
             </table>
         </form>
+        <div class="final">
+            <h3>Moyenne final</h3>
+        <table style="display: inline-block; border-collapse: collapse;">
+            <tr>
+                <td style="width: 79px; height: 32px; border: 1px solid black;">
+                    <?php echo round($average_overall, 2); ?>
+                </td>
+            </tr>
+        </table>
+        </div>
+        <div id="resultat">
+            <?php if ($average_overall < 4): ?>
+                <div class="echec">Echec</div>
+            <?php else: ?>
+                <div class="reussi">Reussi</div>
+            <?php endif; ?>
+        </div>
     </div>
     <div class="grp-2">
         <form method="post">
@@ -207,22 +241,21 @@ if (isset($_SESSION['error_message'])) {
             <button onclick="event.preventDefault()" id="branch">Compétence de base élargie</button>
 
             <label for="semestre-select[]"></label>
-            <select name="semestre-select[]" ">
-            <option>Semestre 1</option>
-            <option>Semestre 2</option>
-            <option>Semestre 3</option>
-            <option>Semestre 4</option>
-            <option>Semestre 5</option>
+            <select name="semestre-select[]">
+                <option>Semestre 1</option>
+                <option>Semestre 2</option>
+                <option>Semestre 3</option>
+                <option>Semestre 4</option>
+                <option>Semestre 5</option>
             </select>
 
-            <label for=" branch-select1[]"></label>
+            <label for="branch-select1[]"></label>
             <select name="branch-select1[]">
                 <option>Math</option>
                 <option>Anglais</option>
             </select>
             <label for="input-numbergr3"></label>
-            <input id="input-numbergr3" name="input-Ecole-Pro[]" type="number" min="1" max="6" step="0.5"
-                   value="1">
+            <input id="input-numbergr3" name="input-comp[]" type="number" min="1" max="6" step="0.5" value="1">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
 
 
@@ -243,11 +276,14 @@ if (isset($_SESSION['error_message'])) {
             </table>
             <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 79px; height: 32px; border: 1px solid black;"></td>
+                    <td style="width: 79px; height: 32px; border: 1px solid black;">
+                        <?php echo round($average_comp, 2); ?>
+                    </td>
                 </tr>
             </table>
         </form>
     </div>
+
     <div class="grp-4">
         <form method="post">
             <button onclick="event.preventDefault()" id="branch">Culture G</button>
@@ -307,9 +343,7 @@ if (isset($_SESSION['error_message'])) {
                 </tr>
             </table>
         </form>
-    </div>
-</div>
-</div>
+        </div>
 </body>
 
 </html>
