@@ -63,7 +63,7 @@ button {
     background: #E5C6C6;
     opacity: 0.9;
     border-radius: 10px;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-left: 42px;
     border-color: #E5C6C6;
 }
@@ -146,5 +146,4 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
-
 
