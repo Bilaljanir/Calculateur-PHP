@@ -8,7 +8,8 @@ if (isset($_POST['logout'])) {
     exit;
 }
 
-// Initialize the grades arrays
+// Initialiser les tableaux de grades
+
 if (!isset($_SESSION['grades_pro'])) {
     $_SESSION['grades_pro'] = [];
 }
@@ -23,6 +24,10 @@ if (!isset($_SESSION['grades_tpi'])) {
     $_SESSION['grades_tpi'] = [];
 }
 
+if (!isset($_SESSION['grades_comp'])) {
+    $_SESSION['grades_comp'] = [];
+}
+
 // Handle submission of new grades
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-Ecole-Pro'])) {
@@ -33,7 +38,6 @@ if (isset($_POST['submit'])) {
             $new_grade = floatval($new_grade);
             array_push($_SESSION['grades_pro'], $new_grade);
         }
-        $_SESSION['success_message'] = 'Grades added successfully.';
         header('Location: grade.php');
         exit;
     }
@@ -63,6 +67,21 @@ if (isset($_POST['submit'])) {
     }
 }
 
+if (isset($_POST['submit'])) {
+    if (isset($_POST["input-tpi"])) {
+        if(!is_array($_POST['input-tpi'])) {
+            $_POST['input-tpi'] = array($_POST['input-tpi']);
+        }
+        foreach($_POST['input-tpi'] as $new_grade) {
+            $new_grade = floatval($new_grade);
+            array_push($_SESSION['grades_tpi'], $new_grade);
+        }
+        header('Location: grade.php');
+        exit;
+    }
+}
+
+
 // Calculate average grades
 $num_grades_pro = count($_SESSION['grades_pro']);
 $sum_grades_pro = array_sum($_SESSION['grades_pro']);
@@ -76,6 +95,14 @@ $num_grades_culture = count($_SESSION['grades_culture']);
 $sum_grades_culture = array_sum($_SESSION['grades_culture']);
 $average_culture = $num_grades_culture > 0 ? $sum_grades_culture / $num_grades_culture : 0;
 
+$num_grades_tpi = count($_SESSION['grades_tpi']);
+$sum_grades_tpi = array_sum($_SESSION['grades_tpi']);
+$average_tpi = $num_grades_tpi > 0 ? $sum_grades_tpi / $num_grades_tpi : 0;
+
+// Calculate overall average
+$num_grades = $num_grades_pro + $num_grades_inter + $num_grades_culture + $num_grades_tpi;
+$sum_grades = $sum_grades_pro + $sum_grades_inter + $sum_grades_culture + $sum_grades_tpi;
+$average_overall = $num_grades > 0 ? $sum_grades / $num_grades : 0;
 
 
 // Handle success message
@@ -145,7 +172,6 @@ if (isset($_SESSION['error_message'])) {
             </table>
         </form>
     </div>
-
     <div class="grp-2">
         <form method="post">
             <button onclick="event.preventDefault()" id="branch">Cours inter</button>
@@ -204,11 +230,11 @@ if (isset($_SESSION['error_message'])) {
                 <tr>
                     <?php
                     // Display each grade in a table cell as a hyperlink
-                    foreach ($_SESSION['grades'] as $index => $grade) {
+                    foreach ($_SESSION['grades_comp'] as $index => $grade) {
                         echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
-                    for ($i = count($_SESSION['grades']); $i < 6; $i++) {
+                    for ($i = count($_SESSION['grades_comp']); $i < 6; $i++) {
                         echo "<td style='width: 33px; height: 32px; border: 1px solid black;'></td>";
                     }
                     ?>
@@ -254,11 +280,10 @@ if (isset($_SESSION['error_message'])) {
         </form>
     </div>
     <div class="grp-5">
-        <form onclick="event.preventDefault()" method="post" action="recuper.php">
-            <button id="branch">TPI</button>
+        <form method="post">
+            <button onclick="event.preventDefault()" id="branch">TPI</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-tpi[]" type="number" min="1" max="6" step="0.5" value="1"
-                   style="display: inline-block;">
+            <input id="input-number" name="input-tpi[]" type="number" min="1" max="6" step="0.5" value="1" style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
@@ -268,24 +293,23 @@ if (isset($_SESSION['error_message'])) {
                         echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
-                    for ($i = count($_SESSION['grades_tpi']); $i < 6; $i++) {
+                    for ($i = count($_SESSION['grades_tpi']); $i < 1; $i++) {
                         echo "<td style='width: 33px; height: 32px; border: 1px solid black;'></td>";
                     }
                     ?>
                 </tr>
             </table>
-            <table id="moyenne" style="display: inline-block; border-collapse: collapse;">
+            <table class="moyenne1" style="display: inline-block; border-collapse: collapse;">
                 <tr>
                     <td style="width: 79px; height: 32px; border: 1px solid black;">
-                        <?php echo round($average_pro, 2); ?>
+                        <?php echo round($average_tpi, 2); ?>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
-
 </div>
-
+</div>
 </body>
 
 </html>
