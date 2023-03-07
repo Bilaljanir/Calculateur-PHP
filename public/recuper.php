@@ -43,8 +43,6 @@ if (isset($_POST['submit'])) {
             if ($new_grade >= 1 && $new_grade <= 6) {
                 $_SESSION['grades'][$index] = $new_grade;
                 $_SESSION['success_message'] = 'Grade edited successfully.';
-                header('Location: grade.php');
-                exit;
             } else {
                 $_SESSION['error_message'] = 'Invalid grade value.';
             }
@@ -52,8 +50,6 @@ if (isset($_POST['submit'])) {
             unset($_SESSION['grades'][$index]);
             $_SESSION['grades'] = array_values($_SESSION['grades']);
             $_SESSION['success_message'] = 'Grade deleted successfully.';
-            header('Location: grade.php');
-            exit;
         }
     }
 }
@@ -69,17 +65,17 @@ if (isset($_POST['submit'])) {
 <body>
 <h1>Edit Grade</h1>
 <?php if (isset($grade)): ?>
-<?php if (isset($_SESSION['error_message'])): ?>
-    <div style="color: red;"><?php echo $_SESSION['error_message']; ?></div>
-    <?php unset($_SESSION['error_message']); ?>
-<?php endif; ?>
-<form method="post">
-    <label for="input-grade">Grade:</label>
-    <input id="input-grade" name="new-grade" type="number" min="1" max="6" step="0.5" value="<?php echo $grade; ?>">
-    <br>
-    <button type="submit" name="action" value="edit">Edit</button>
-    <button type="submit" name="action" value="delete">Delete</button>
-</form>
+    <?php if (isset($_SESSION['error_message'])): ?>
+        <div style="color: red;"><?php echo $_SESSION['error_message']; ?></div>
+        <?php unset($_SESSION['error_message']); ?>
+    <?php endif; ?>
+    <form method="post">
+        <label for="input-grade">Grade:</label>
+        <input id="input-grade" name="new-grade" type="number" min="1" max="6" step="0.5" value="<?php echo $grade; ?>">
+        <br>
+        <button type="submit" name="action" value="edit">Edit</button>
+        <button type="submit" name="action" value="delete">Delete</button>
+    </form>
 <?php else: ?>
     <p>Grade not found.</p>
 <?php endif; ?>

@@ -31,10 +31,10 @@ if (!isset($_SESSION['grades_tpi'])) {
 // Handle submission of new grades
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-Ecole-Pro'])) {
-        if(!is_array($_POST['input-Ecole-Pro'])) {
+        if (!is_array($_POST['input-Ecole-Pro'])) {
             $_POST['input-Ecole-Pro'] = array($_POST['input-Ecole-Pro']);
         }
-        foreach($_POST['input-Ecole-Pro'] as $new_grade) {
+        foreach ($_POST['input-Ecole-Pro'] as $new_grade) {
             $new_grade = floatval($new_grade);
             array_push($_SESSION['grades_pro'], $new_grade);
         }
@@ -42,10 +42,10 @@ if (isset($_POST['submit'])) {
         exit;
     }
     if (isset($_POST['input-Cours-Inter'])) {
-        if(!is_array($_POST['input-Cours-Inter'])) {
+        if (!is_array($_POST['input-Cours-Inter'])) {
             $_POST['input-Cours-Inter'] = array($_POST['input-Cours-Inter']);
         }
-        foreach($_POST['input-Cours-Inter'] as $new_grade) {
+        foreach ($_POST['input-Cours-Inter'] as $new_grade) {
             $new_grade = floatval($new_grade);
             array_push($_SESSION['grades_inter'], $new_grade);
         }
@@ -55,10 +55,10 @@ if (isset($_POST['submit'])) {
 }
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-comp'])) {
-        if(!is_array($_POST['input-comp'])) {
+        if (!is_array($_POST['input-comp'])) {
             $_POST['input-Culture-G'] = array($_POST['input-comp']);
         }
-        foreach($_POST['input-comp'] as $new_grade) {
+        foreach ($_POST['input-comp'] as $new_grade) {
             $new_grade = floatval($new_grade);
             array_push($_SESSION['grades_comp'], $new_grade);
         }
@@ -69,10 +69,10 @@ if (isset($_POST['submit'])) {
 
 if (isset($_POST['submit'])) {
     if (isset($_POST['input-Culture-G'])) {
-        if(!is_array($_POST['input-Culture-G'])) {
+        if (!is_array($_POST['input-Culture-G'])) {
             $_POST['input-Culture-G'] = array($_POST['input-Culture-G']);
         }
-        foreach($_POST['input-Culture-G'] as $new_grade) {
+        foreach ($_POST['input-Culture-G'] as $new_grade) {
             $new_grade = floatval($new_grade);
             array_push($_SESSION['grades_culture'], $new_grade);
         }
@@ -83,10 +83,10 @@ if (isset($_POST['submit'])) {
 
 if (isset($_POST['submit'])) {
     if (isset($_POST["input-tpi"])) {
-        if(!is_array($_POST['input-tpi'])) {
+        if (!is_array($_POST['input-tpi'])) {
             $_POST['input-tpi'] = array($_POST['input-tpi']);
         }
-        foreach($_POST['input-tpi'] as $new_grade) {
+        foreach ($_POST['input-tpi'] as $new_grade) {
             $new_grade = floatval($new_grade);
             array_push($_SESSION['grades_tpi'], $new_grade);
         }
@@ -125,13 +125,13 @@ $average_overall = $num_grades > 0 ? $sum_grades / $num_grades : 0;
 
 // Handle success message
 if (isset($_SESSION['success_message'])) {
-    echo '<div style="color: green;">'.$_SESSION['success_message'].'</div>';
+    echo '<div style="color: green;">' . $_SESSION['success_message'] . '</div>';
     unset($_SESSION['success_message']);
 }
 
 // Handle error message
 if (isset($_SESSION['error_message'])) {
-    echo '<div style="color: red;">'.$_SESSION['error_message'].'</div>';
+    echo '<div style="color: red;">' . $_SESSION['error_message'] . '</div>';
     unset($_SESSION['error_message']);
 }
 
@@ -171,7 +171,7 @@ if (isset($_SESSION['error_message'])) {
                     <?php
                     // Display each grade in a table cell as a hyperlink
                     foreach ($_SESSION['grades_pro'] as $index => $grade) {
-                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=" . $grade . "&index=" . $index . "'>" . $grade . "</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
                     for ($i = count($_SESSION['grades_pro']); $i < 6; $i++) {
@@ -190,13 +190,13 @@ if (isset($_SESSION['error_message'])) {
         </form>
         <div class="final">
             <h3>Moyenne final</h3>
-        <table style="display: inline-block; border-collapse: collapse;">
-            <tr>
-                <td style="width: 79px; height: 32px; border: 1px solid black;">
-                    <?php echo round($average_overall, 2); ?>
-                </td>
-            </tr>
-        </table>
+            <table style="display: inline-block; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 79px; height: 32px; border: 1px solid black;">
+                        <?php echo round($average_overall, 2); ?>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div id="resultat">
             <?php if ($average_overall < 4): ?>
@@ -218,7 +218,7 @@ if (isset($_SESSION['error_message'])) {
                     <?php
                     // Display each grade in a table cell as a hyperlink
                     foreach ($_SESSION['grades_inter'] as $index => $grade) {
-                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=" . $grade . "&index=" . $index . "'>" . $grade . "</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
                     for ($i = count($_SESSION['grades_inter']); $i < 6; $i++) {
@@ -240,20 +240,24 @@ if (isset($_SESSION['error_message'])) {
         <form method="post">
             <button onclick="event.preventDefault()" id="branch">Compétence de base élargie</button>
 
-            <label for="semestre-select[]"></label>
-            <select name="semestre-select[]">
-                <option>Semestre 1</option>
-                <option>Semestre 2</option>
-                <option>Semestre 3</option>
-                <option>Semestre 4</option>
-                <option>Semestre 5</option>
-            </select>
 
             <label for="branch-select1[]"></label>
             <select name="branch-select1[]">
                 <option>Math</option>
-                <option>Anglais</option>
+                <option selected>Anglais</option>
             </select>
+            <label for="semestre-select[]"></label>
+            <select name="semestre-select[]">
+                <option>Semestre 1</option>
+                <option>Semestre 2</option>
+                <option selected>Semestre 3</option>
+                <option>Semestre 4</option>
+                <option>Semestre 5</option>
+                <option>Semestre 6</option>
+                <option>Semestre 7</option>
+                <option>Semestre 8</option>
+            </select>
+
             <label for="input-numbergr3"></label>
             <input id="input-numbergr3" name="input-comp[]" type="number" min="1" max="6" step="0.5" value="1">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
@@ -264,7 +268,7 @@ if (isset($_SESSION['error_message'])) {
                     <?php
                     // Display each grade in a table cell as a hyperlink
                     foreach ($_SESSION['grades_comp'] as $index => $grade) {
-                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=" . $grade . "&index=" . $index . "'>" . $grade . "</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
                     for ($i = count($_SESSION['grades_comp']); $i < 6; $i++) {
@@ -296,7 +300,7 @@ if (isset($_SESSION['error_message'])) {
                     <?php
                     // Display each grade in a table cell as a hyperlink
                     foreach ($_SESSION['grades_culture'] as $index => $grade) {
-                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=" . $grade . "&index=" . $index . "'>" . $grade . "</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
                     for ($i = count($_SESSION['grades_culture']); $i < 6; $i++) {
@@ -319,14 +323,15 @@ if (isset($_SESSION['error_message'])) {
         <form method="post">
             <button onclick="event.preventDefault()" id="branch">TPI</button>
             <label for="input-number"></label>
-            <input id="input-number" name="input-tpi[]" type="number" min="1" max="6" step="0.5" value="1" style="display: inline-block;">
+            <input id="input-number" name="input-tpi[]" type="number" min="1" max="6" step="0.5" value="1"
+                   style="display: inline-block;">
             <button id="add-grade" name="submit" style="display: inline-block;">+</button>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
                     <?php
                     // Display each grade in a table cell as a hyperlink
                     foreach ($_SESSION['grades_tpi'] as $index => $grade) {
-                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=".$grade."&index=".$index."'>".$grade."</a></td>";
+                        echo "<td style='width: 33px; height: 32px; border: 1px solid black;'><a href='recuper.php?grade=" . $grade . "&index=" . $index . "'>" . $grade . "</a></td>";
                     }
                     // Add empty cells if necessary to fill the first row
                     for ($i = count($_SESSION['grades_tpi']); $i < 1; $i++) {
@@ -343,7 +348,7 @@ if (isset($_SESSION['error_message'])) {
                 </tr>
             </table>
         </form>
-        </div>
+    </div>
 </body>
 
 </html>

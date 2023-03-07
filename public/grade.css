@@ -1,15 +1,18 @@
-.bdy{
+.bdy {
     display: grid;
     grid-template-rows: repeat(7, 1fr);
     gap: 94px;
 }
-body{
+
+body {
     background-color: #F8F5F5;
 }
-img{
-margin-top: 100px;
+
+img {
+    margin-top: 100px;
 }
-#line{
+
+#line {
     width: 443px;
     height: 0px;
     left: 483px;
@@ -18,7 +21,7 @@ margin-top: 100px;
 }
 
 
-select{
+select {
     width: 65px;
     height: 30px;
     left: 257px;
@@ -29,7 +32,7 @@ select{
 }
 
 
-p1{
+p1 {
     margin-top: 100px;
     margin-left: 250px;
     display: flex;
@@ -43,7 +46,7 @@ p1{
     border-radius: 10px;
 }
 
-p2{
+p2 {
     margin-left: 100px;
     display: block;
     text-align: center;
@@ -67,7 +70,7 @@ button {
     border-color: #E5C6C6;
 }
 
-input{
+input {
     margin-left: 31px;
     width: 46px;
     height: 30px;
@@ -81,11 +84,13 @@ input{
 #input-number {
     margin-left: 300px;
 }
-#input-numbergr3{
+
+#input-numbergr3 {
     margin-left: 45px;
 
 }
-#add-grade{
+
+#add-grade {
     height: 22px;
     width: 27px;
     left: 573px;
@@ -96,7 +101,8 @@ input{
 
 
 }
-#remove-grade{
+
+#remove-grade {
     height: 22px;
     width: 27px;
     left: 573px;
@@ -106,11 +112,13 @@ input{
     border-color: #E5C6C6;
 
 }
-table{
+
+table {
     margin-left: 36px;
     background-color: white;
 }
-#moyennefinal{
+
+#moyennefinal {
     margin-left: 155px;
     background-color: white;
 
@@ -120,11 +128,13 @@ table{
     margin-left: 90px;
     background-color: white;
 }
-.header2{
+
+.header2 {
     margin-top: 76px;
     display: flex;
     flex-direction: row;
 }
+
 h2 {
     width: 171px;
     height: 21px;
@@ -145,16 +155,19 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
-.moyenne1{
-margin-left: 270px;
+
+.moyenne1 {
+    margin-left: 270px;
 }
+
 .grp-1 {
     display: flex;
     justify-content: inherit;
     align-items: center;
     flex-wrap: wrap;
 }
-.final{
-margin-left: 100px;
+
+.final {
+    margin-left: 100px;
 }
 
