@@ -189,24 +189,28 @@ if (isset($_SESSION['error_message'])) {
             </table>
         </form>
         <div class="final">
-            <h3>Moyenne final</h3>
+            <h3>Moyenne finale</h3>
             <table style="display: inline-block; border-collapse: collapse;">
                 <tr>
-                    <td style="width: 79px; height: 32px; border: 1px solid black;">
+                    <td style="width: 79px; height: 32px; border: 1px solid black; position: relative;">
                         <?php echo round($average_overall, 2); ?>
+                        <div style="position:absolute;bottom:0;">
+                            <?php if ($average_overall >= 50) ?>
+
+                        </div>
                     </td>
                 </tr>
             </table>
         </div>
+
         <div id="resultat">
             <?php if ($average_overall < 4): ?>
-                <div class="echec">Echec</div>
+                <div class="echec">you failed</div>
             <?php else: ?>
-                <div class="reussi">Reussi</div>
+                <div class="reussi">you passed</div>
             <?php endif; ?>
         </div>
     </div>
-
     <div class="grp-2">
         <form method="post">
             <button onclick="event.preventDefault()" id="branch">Cours inter</button>
