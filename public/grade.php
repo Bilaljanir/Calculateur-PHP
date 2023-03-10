@@ -206,6 +206,7 @@ if (isset($_SESSION['error_message'])) {
             <?php endif; ?>
         </div>
     </div>
+
     <div class="grp-2">
         <form method="post">
             <button onclick="event.preventDefault()" id="branch">Cours inter</button>

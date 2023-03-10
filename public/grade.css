@@ -35,7 +35,6 @@ select {
 p1 {
     margin-top: 100px;
     margin-left: 250px;
-    display: flex;
     justify-content: center;
     text-align: center;
     width: 123px;
@@ -160,14 +159,13 @@ h2 {
     margin-left: 270px;
 }
 
-.grp-1 {
-    display: flex;
-    justify-content: inherit;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
 .final {
     margin-left: 100px;
+}
+
+.grp-1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
